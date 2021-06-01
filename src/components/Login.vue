@@ -26,7 +26,7 @@
   </el-form-item>
   <!--按钮区-->
   <el-form-item  class="btns">
-     <el-button type="success" plain >登录</el-button>
+     <el-button type="success" plain  @click="tiaoZhuan">登录</el-button>
   <el-button type="info" plain  @click="resetForm">重置</el-button>
   </el-form-item>
       </el-form>
@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import router from '../router'
 export default {
   data(){
     return{
@@ -61,6 +62,7 @@ export default {
   methods:{
     resetForm(){
       this.$refs.loginFormRef.resetFields();
+      router.push('/element')
     },
     /* showPwd() {
       if (this.passwordType === 'password') {
@@ -72,6 +74,9 @@ export default {
         this.$refs.password.focus()
       })
     },*/
+    tiaoZhuan(){
+      router.push('/shiyong')
+    }
   }
   
 }
@@ -97,10 +102,10 @@ export default {
   border-radius: 50%;
   padding: 10px;
   background-color: #fff;
-  box-shadow: 0 0 10px #add;/* 这个比较少见*/ 
-  position: absolute;
-  left:50%;
-  transform: translate(-50%,-50%);
+  box-shadow: 0 0 10px #add;/* 这个比较少见 10px是外延*/ 
+  position: absolute;//只有设定这个。才能对元素进行位移
+  left:50%;//这个是离父元素左边框的距离。
+  transform: translate(-50%,-50%);//这是移动相对于自身大小的距离百分比。
   img{
     height: 100%;
     width: 100%;
@@ -117,7 +122,7 @@ export default {
   bottom:0;/*这个我很少用到 */
   width:100%;
   padding: 0 20px;/**上下0 左右20px */
-  box-sizing: border-box;
+  box-sizing: border-box;//这个就把那些按钮突出去的部分 纳入
 }
 
 /*.show-pwd {

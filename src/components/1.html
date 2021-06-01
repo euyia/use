@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+ 
+<body>
+ 
+</body>
+<script>
+    var data = [{
+            id: '1',
+            name: '姚明'
+        },{
+            id: '2',
+            name: '宝宝'
+        },{
+            id: '3',
+            name: '刚刚'
+        },{
+            id: '4',
+            name: '姚明'
+        },{
+            id: '5',
+            name: '确切'
+        },{
+            id: '6',
+            name: '刚个'
+        },{
+            id: '7',
+            name: '建议'
+        },{
+            id: '8',
+            name: '姚恩特明'
+        },{
+            id: '9',
+            name: '回电话'
+        },{
+            id: '10',
+            name: '哈哈'
+        },{
+            id: '11',
+            name: '不能'
+        },{
+            id: '12',
+            name: '预见'
+        },   
+    ]
+    var newArr = [];
+    for (var i = 0; i < data.length; i += 4) {
+        newArr.push(data.slice(i, i + 4));
+    }
+    console.log(newArr)
+</script>
+ 
+</html>

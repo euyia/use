@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  console.log('1'); //这个肯定的
+  function charset(){
+    console.log('2');//函数定义完之后就先扔着。。等有调用才会去动。
+    return '8.11';
+    console.log('3');//return之后就停了。他就返回结果了。所以這個是不會讀取的
+  }
+  console.log('4');//这是跳过定义的函数之后顺序读取
+  charset();
+  console.log('5');//这个是执行完了函数 自然会往下读。。
+</script>
+</html>

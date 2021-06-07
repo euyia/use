@@ -5,7 +5,7 @@
       <div class="avatar_box">
         <img src="../assets/logo.png" alt="">
       </div>
-       <!--登录表单区,这个框包涵了下面三组控件-->
+       <!--登录表单区,这个框包涵了下面三组控件 因为他是父组件 下面的子组件都要用到的属性 。所以要绑定在这个组件上。-->
       <el-form ref="loginFormRef" class="login_form" :model="loginForm" :rules="loginFormRules">
         <!--用户名-->
   <el-form-item  prop="username">

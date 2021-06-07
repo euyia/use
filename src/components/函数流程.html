@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+
+  </div>
+</body>
+<script>
+  console.log(1);
+  function charset(){
+    console.log(2);
+    callback('8..11');
+    console.log(3);//因为这边没有return 所以callback执行完之后 他还会会到他执行的这个地方继续读下去
+return '查完了';
+  }
+  //-------------------------------------------上面是是秘书 下面是老板。下面是调用者
+  console.log(4);
+  function callback(startTime){
+    console.log(startTime)//参数相当于传值。。函数默认是不需要有参数的。。当你要传一个东西的时候才需要。8.11就是要传的东西。
+    console.log(5);// 。。。参数其实就是以前函数的变量。
+  }
+  console.log(6);
+ var result= charset();
+ console.log(result)
+  console.log(7);
+</script>
+</html>

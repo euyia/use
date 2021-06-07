@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+      这个格式化的插件也是真的好用。。
+      可以再发现一些别的插件吗。。
+     -->
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      数值A: <input type="text" v-model="a" />
+      <br />
+      数值b: <input type="text" v-model="b" />
+      <br />
+      <button @click="handle">计算</button>
+      <br />
+      <span>计算结果：{{result}}</span>
+      <br /><!-- 背后都是有很清晰的逻辑的，
+    我只是一个人。。孤单的一个人。
+    陪我的。只有这些代码。。
+    和这些电脑。谢谢你们赋予我力量。。 
+  这个快捷键是真的牛啊。。
+他能在不同的场合识别出来不同的一个格式。。。
+真的是牛的一批。。这种快捷键 好用-->
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            a: "",
+            b: "",
+            result: "",
+          };
+        },
+        methods: {
+          handle() {
+            this.result =
+              parseInt(this.a) +
+              parseInt(
+                this.b
+              ); /* 这个单词是一个数值取整。。也是把原来的字符串 改成num数据类型 */
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

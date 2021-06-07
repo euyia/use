@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script>
+      var fs=require('fs');//引入模块
+      var dirPathString='./';//定义查询的目标文件夹 为当前文件
+      var outPutPathString='./lixiang.txt';//定义写入文件夹的路径和文件名
+      var name=[];
+      //定义一个回调函数 ，筛选只有json后罪名的文件，
+function calllback(err,files){
+  if(err){
+    console.log('读取文件失败');
+    return;
+  }
+
+for(var i=0; i<files.length;i++){
+  if(files[i],endwith('.json')){
+    name.push(files[i]);
+  }
+}
+fs.writeFile(outPutPathString,name,callback2);
+}
+
+fs.readdir(dirPathString,callback)
+    </script>
+  </head>
+</html>

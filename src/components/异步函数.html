@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <script>
+    console.log(1);
+    function charset(callback) {
+      console.log(2);
+      setTimeout(function() {
+        //这个异步函数 就是5秒之后才执行！！！！！
+        console.log(3);
+        callback("8.00");
+      }, 5000); //即使这里设置成0秒。。也是异步函数。，因为cpu那边有个时间片。。
+      console.log(4);
+    }
+    //-------------------------------------------
+    console.log(5);
+    function callback(startTime) {
+      console.log(6);
+      console.log(startTime);
+      console.log(7);
+    }
+    console.log(8);
+    charset(callback);
+    console.log(9); //去看那个时序图的断点。。异步函数读过之后。那个老板的函数就算完事了
+    //它就会去做下一步。。也就是9
+  </script>
+</html>

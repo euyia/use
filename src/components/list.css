@@ -1,0 +1,49 @@
+/* 对网页进行统一的设置
+对网页默认边距清零
+* 就是一切
+0 不需要单位 给什么单位都一样*/
+*{
+  padding: 0;
+  margin: 0;
+}
+/*给网页分区，设置每个区域的尺寸
+加边框 好观察他的尺寸
+综合能力是一方面 把你的优点表现出来
+要的是思路。而不是距离的代码
+写一个东西要5000行代码。。你怎么交流。*/
+div{
+  border: 1px solid #ff08;
+  margin: 0  auto;/*到这里。块元素默认就是没有宽高，*/
+}
+/*共性先写 差异后写
+单词就是他的注释。。css没啥语法*/
+.logo{
+  width: 960px;
+  height: 61px;
+}
+.menu{
+  height: 91px;
+}
+.core{
+  height: 410px;
+  /*内边距的空间 用来放渐变条*/
+  padding: 10px;
+}
+.copy{
+  width: 960px;
+  height: 50px;
+}
+.content{
+  width: 950px;
+  height: 390px;
+  border: 5px solid #8ac1db;
+}
+.content div{
+  width: 910px;
+  height: 40px;
+}
+.content .data{/* 如果只写data优先级没有上面那个来的高 会被覆盖
+  自己调整的方式 就是去看网页检查 。然后看盒子模型 然后看哪个样式被覆盖了。然后处理。。
+  这里就是优先级问题*/
+  height: 310px;
+}

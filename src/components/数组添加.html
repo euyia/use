@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+  <div>
+    <input type="text" v-model='fame'>
+    <button @click='add'>add</button>
+    <button @click='del'>删除</button>
+    <button @click='change'>change</button>
+  </div>
+  <div><ul>
+    <li :key='index' v-for='(item,index) in list'>{{item}}</li>
+  </ul></div></div>
+</body>
+<script>
+/*这个key主要把数组标志起来。。key还不是很理解。。可以多琢磨下。
+就是双向绑定。。然后通过按钮把绑定的值push压到list里
+只要是定义为数据。。即使里面初始一个也是。。不影响它的数据类型
+数据类型很重要*/
+  var App=new Vue({
+    el:'#app',
+    data(){
+      return{
+        fame:'',
+        list:['apple']
+      }
+    },
+    methods:{
+      add(){
+        this.list.push(this.fame);
+      },
+      del(){
+        this.list.pop();
+      },
+      change(){
+        this.list=this.list.slice(0,2);//因为替换之后的数组和变异方法不一样
+        //它是产生了新的数组。。所以要用this.list=来重新改变在原来的数组上。才能体现出来
+      }
+    }
+  });
+App.list[0]='linmeng';
+</script>
+
+</html>

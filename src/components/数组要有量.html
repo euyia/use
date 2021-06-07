@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model='liang'>
+      <button @click='lian'>liang</button>
+      <button @click='del'>delate</button>
+      <button @click='change'>change</button>
+    </div>
+    <div>
+      <ul>
+        <li :key='liang' v-for='(item,liang) in list'>{{item}}
+
+        </li>
+      </ul>
+    </div>
+    <div>{{fame.name}}</div>
+    <div>{{fame.age}}</div>
+    <div>{{fame.gander}}</div>
+  </div>
+</body>
+<script>
+  //数组里面可以放任何类型的对象。
+
+  var App=new Vue({
+    el:"#app",
+    data(){
+      return{
+        liang:'',
+        list:['1','323','3'],
+        fame:
+         { name:'nihao',
+        age:12
+      }//这里为啥用大括号，因为它有很多属性直接写不玩。但是。。这也算数组吗。。
+
+        
+      }
+    },
+    methods:{
+      lian(){
+        this.list.push(this.liang);
+      },
+      del(){
+        this.list.pop();
+      },
+      change(){
+        this.list=this.list.slice(1,2);//好奇怪。。0，1 和1，2 得到的结果是一样的 
+
+      }
+    }
+    
+  });
+ // App.list[0]='liang';
+//这只能在控制台看到。并不是体现  ..有写下面的函数的时候。。上面也跟着变。！！！
+//Vue.set(App.list,2,'liang');
+App.$set(App.list,2,'liang')//下面这两种效果是一样的。vue就是喜欢用$
+App.$set(App.fame,'gander','man');
+//括号里面 第一个参数是数组的名称 2是数组的索引位置。或者属性名称。。3是属性的值。
+</script>
+</html>

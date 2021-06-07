@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model='liang'>
+    <button @click='zeng'>zeng</button>
+    <button @click='del'>delate</button>
+    <br>
+    <div>
+      <ul>
+        <li :key='index' v-for='(item,index) in list'>{{item}}
+
+        </li><!--里面错加了一个逗号。。属性之间。这种都不提示的吗。。。？？-->
+      </ul>
+    </div>
+  </div>
+</body>
+<script>
+  var App=new Vue({
+    el:'#app',
+    data(){
+      return{
+        liang:'',
+        list:[
+          'orange','ap','cl'
+        ]
+      }
+    },
+    methods:{
+      zeng(){
+        this.list.push(this.liang);
+      },
+      del(){
+        this.list.pop();
+
+      },
+    }
+  })
+</script>
+</html>

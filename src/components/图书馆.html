@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.min.js"></script>
+  <style>
+    .grid{
+      margin:auto;
+      width:500px;
+      text-align: center;
+    }
+    .grid table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .grid tr,td{
+      padding: 10px; 
+      border:1px darkolivegreen;
+      height: 35px;
+      line-height: 35px;
+    }
+    .grid tr{
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="grid">
+      <div>
+        <h1>图书管理</h1>
+        <div class="book">
+          <div>
+            <label for="id">编号:</label>
+            <input type="text" id="id"  v-model='id'>
+            <label for="name">名称:</label>
+            <input type="text" id="name"  v-model='name'>
+            <button @click='handle'>提交</button>
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>编号</td>
+            <td>名称</td>
+            <td>时间</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr :key='item.id' v-for='item in books'>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.data}}</td>
+            <td><a href=''  @click.prevent='toBianji(item)'>修改</a><!--这个修饰符 是禁用a标签的默认行为-->
+              <a href=''  @click.prevent>删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</body>
+<script>
+  var App=new Vue({
+    el:'#app',
+    data(){
+      return{
+        id:'',
+        name:'',
+        books:[
+          {id:1,
+          name:'卢锡安',
+        data:''},
+        {id:2,
+          name:'盖伦',
+        data:''},
+        {id:3,
+          name:'鳄鱼',
+        data:''},
+        {id:4,
+          name:'三国',
+        data:''},
+        ]
+      }
+    },
+    methods:{
+      handle(){
+        //添加图书
+        var book={};
+        book.id=this.id;
+        book.name=this.name;
+        book.data="";
+        this.books.push(book);
+        //清空表单
+        this.id='';
+        this.name='';
+      },
+      toBianji(id){
+        console.log(id.id)//这里为什么要我自己修改了。才行。。
+    
+        //根据ID查询出要编译的数据
+        var book = this.books.filter(function(item){
+          return item.id==id.id;
+          //把获取到的信息填充到表单
+         
+        });
+         console.log(book)
+          this.id=book[0].id;
+          this.name=book[0].name;
+      }
+    }
+  })
+</script>
+</html>

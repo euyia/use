@@ -1,30 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title><!-- 弄一个new vue的模板
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 弄一个new vue的模板
   秘诀就是要去写。。写起来。写起来。姿势不重要。。重要的是一直写。。就像一只跑。。跑步也是跑跑也是
   一直输出 最重要
-秘诀中的秘诀。。就是多些经典的。。 -->
-  <script src="vue.js"></script>
-</head>
-<body>
-  <div id="app">
-    <div class="tab">
-      <ul>
-        <li @click='change(index)' :class='currentIndex==index?"active":""' :key="item.id" v-for='(item,index) in list'>
-          {{item.title}}
-        </li>
-      </ul>
-      <div :class="cuttrenIndex==index?'current':''" :key='item.id' v-for='(item,index) in list'>
-        <img src="item.path" alt="">
+秘诀中的秘诀。。就是多些经典的。。 
+currenIndex is not defined 百分99都是拼写问题。。
+然后要么就是语法问题。
+没啥技巧 就是敢。。就是敢 就是选北大 考不上吗 就是选北大 。。刘晓燕名言 
+-->
+    <script src="vue.js"></script>
+    <style>
+      body,
+      .tab,
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+      .tab ul {
+        display: flex;
+        width: 320px;
+        list-style-type: none;
+      }
+      .tab div {
+        display: none;
+      }
+      .tab ul li {
+        flex: 1;
+        margin-left: 8px;
+        border: 1px solid;
+        text-align: center;
+        cursor: pointer;
+      }
+      .tab ul li:nth-child(1) {
+        margin-left: 0;
+      }
+      .tab ul li.active {
+        background-color: yellow;
+      }
+      .tab div.current {
+        display: block; /* 这个不知道是不是和none对应的。。但是他就是设置这个值 来显示。。也是可以 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="tab">
+        <ul>
+          <li
+            @click="change(index)"
+            :class='currentIndex==index?"active":""'
+            :key="item.id"
+            v-for="(item,index) in list"
+          >
+            {{item.title}}
+          </li>
+        </ul>
+        <div
+          :class="currentIndex==index?'current':''"
+          :key="item.id"
+          v-for="(item,index) in list"
+        >
+          <img :src="item.path" alt="" /><!-- 这里是属性绑定 所以src要加冒号 -->
+        </div>
       </div>
     </div>
-  </div>
-</body>
-<script>
+  </body>
+  <script>
+    var App = new Vue({
+      el: "#app",
+      data() {
+        return {
+          currentIndex: 0,
+          list: [
+            {
+              id: 1,
+              title: "apple",
+              path:
+                "3.png" /* 
+          就是用的习惯吧
+           地址可以这样直接当做属性。。就好便利啊。以前一直觉得是url后面才接地址
+          SRC是source 源
+           url 统一资源定位系统（uniform resource locator;URL）
+           path 路径 
+           href呢。。引样式
+           统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，
+           是互联网上标准资源的地址。
+           互联网上的每个文件都有一个唯一的URL
+           ，它包含的信息指出文件的位置以及浏览器应该怎么处理它。
+基本URL包含模式（或称协议）、服务器名称（或IP地址）、路径和文件名，
+如“协议://授权/路径?查询”。完整的、带有授权部分的普通统一资源标志符语法看上去如下：
+协议://用户名:密码@子域名.域名.顶级域名:端口号/目录/文件名.文件后缀?参数=值#标志
 
-</script>
+*/,
+            },
+            {
+              id: 2,
+              title: "fashi",
+              path: "4.png",
+            },
+            {
+              id: 3,
+              title: "zuichun",
+              path: "5.png",
+            },
+          ],
+        };
+      },
+      methods: {
+        change(index) {
+          console.log(1111);
+          //在这里实现选项卡的切换
+          //就是操作类名。通过currentIndex
+          //传值 对值进行重新定义
+          this.currentIndex = index;
+        },
+      },
+    });
+  </script>
 </html>

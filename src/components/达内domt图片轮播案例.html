@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        div{
+            border: 1px solid gray;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+
+        }
+        .show{
+            display: inline-block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload=function(){lunbo();
+            //这个匿名函数是后调用。这句话是页面加载完整之后才读取 已经有lunbo。虽然那个函数是写在后面 。但是也是可以调用到
+           
+        }
+        var id;//后面要clearid 所以要声明。一个全局变量。来建立联系
+        /*把轮播的方法 封装成一个逻辑 其他函数可以调用 
+        这个和吧一个东西 声明起来 后面要掉用 一个道理
+        下面onmouseout事件要反复调用*/
+        var n=0;//这是轮播次数 ，初值为零
+        //这个要拿出函数外面变为全局 效果是不一样的。
+        //鼠标重新放上去 轮播就会延续下去。而不是重新会图片1 n被返回初值。
+        function lunbo(){
+            
+            //页面加载时候启动定时器
+           id= setInterval(function(){
+                n++;//每次轮播 次数要叠加。
+                //h获取所有图片 得到的是数量
+                var imgs=document.getElementsByTagName("img");
+//将所有的图片隐藏 每个图片挨个改 所以要循环
+ for(var i=0;i<imgs.length;i++){
+     imgs[i].className="hide";
+ }//将一张图片显示
+ var index=n%imgs.length;// 通过求余的方式。来确定轮播次数和显示的图的序列的关系。
+ imgs[index].className="show";
+            
+
+            },2000)
+        }
+        function stop(){
+            clearInterval(id);//但是么有制定这个id 所以要上去声明一个。并赋值给interval 然后这里才能调用
+        }
+    </script>
+</head>
+<body><!--悬停事件写在dv上 写在图片上要每个都写麻烦。
+-->
+    <div onmouseover="stop()" 
+    onmouseout="lunbo()">
+        <img src="pic/1.PNG" alt="">
+        <img src="pic/2.PNG" alt="" class="hide"> 
+        <img src="pic/3.PNG" alt="" class="hide">
+        <img src="pic/4.PNG" alt="" class="hide"> 
+        <img src="pic/5.PNG" alt="" class="hide">
+        <img src="pic/6.PNG" alt="" class="hide">
+       
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        .error{color: brown;}
+        .ok{color: chartreuse;}
+    </style>
+    <script>function checkCode(){
+        var code=document.getElementById("code").value;
+        var span=document.getElementById("code_msg");
+        var reg=/^\w{5,10}$/;// 前面是^后面是$ 相当于限制范围。
+        if(reg.test(code)){
+            span.className="ok";
+            return true;
+        }else{
+            span.className="error";
+            return false;
+        }
+    }
+
+
+    function checkPwd(){
+        var pwd=document.getElementById("pwd").value;
+        var span=document.getElementById("pwd_msg");
+       // var reg=/^\w{5.10}$/;
+       var reg=/^\w{5,10}$/;
+        if(reg.test(pwd)){
+            span.className="OK";
+            return true;// 这是个checkcode加返回值！！！
+
+        }else{
+            span.className="error";
+            return false;
+        }
+    }
+// 为什么这classname 就能直接调用style里的。。。又没有声明。。？？？？
+    </script>
+</head>
+<body>
+    <form action="http://www.google.cn" onsubmit="return checkCode() && checkPwd()">
+        <p><!--onblur 事件会在对象失去焦点时发生。submit 一般是表单里的按钮。提交-->
+            账号：<input type="text" id="code" onblur="checkCode()">
+            <span id="code_msg">5-7位字母，数字，下划线</span>
+        </p>
+        <p>
+            密码:<input type="password" id="pwd" onblur="checkPwd()"/>
+            <span id="pwd_msg">5-7位字母，数字，下划线</span>
+        </p>
+        <p>
+            <input type="submit" value="登录">
+        </p>
+    </form>
+</body>
+</html>
+

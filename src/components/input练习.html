@@ -1,0 +1,102 @@
+<html>
+    <body>
+        <table align="center"><!--fieldset是没有边框位置属性的，form也没，所以
+        布局form外面在框一层table具有布局的能力。。然后从而限定fieldset的位置nice-->
+            <tr>
+                <td>
+                  
+        <form action="">
+            
+                <fieldset >
+                    <legend>表单注册</legend>
+               <table border="1" align="center">
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="username" value="帅"/></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="short" /></td>
+                </tr>
+                <!-- name写成sex 统一之后。。就可以实现二选一 checked是默认值-->
+                <tr>
+                    <td>性别</td>
+                    <td><input type="radio" name="1" value="男" checked="checked" />男</td>
+                    &nbsp;
+                    <td><input type="radio" name="1" value="女" />女</td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="submit" value="注册" /></td>
+                     <!-- value是初始值，也可以用作按钮的显示名称
+                        value是在按钮上显示的。和文本的位置有区别
+                    文本在电脑眼里就是文字。如果要建立联系 还是要有value电脑才能真的识别-->
+                    <td><input type="reset" value="取消"/></td>
+                    <td><input type="button" value="查询" onclick="alert('你好');"/></td>
+                    <td><input type="image" src="pic/666.png"/></td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td><input type="radio" name="sex" value="男" id="man"/>
+                        <!-- 这就是label的锚定方式name可以重复的，但是id是唯一的，所以锚定id-->
+                        <label for="man">男</label></td>
+                    &nbsp;
+                    <td><input type="radio" name="sex" value="女" />女</td>
+                </tr>
+                <tr>
+                    <td>城市</td>
+                    <td>&nbsp;<select name="city">
+                        <optgroup label="漳州">
+                        <option value="北京">beiiing</option>
+                        <option  >龙文</option>
+                        <option value="zhangzhou" >芗城</option>
+                        <option >beiiing</option>
+
+                        </optgroup>
+                        
+
+
+
+
+
+                    </select>
+                    <td><input type="radio" name="1" value="女" />女</td>
+                </tr>
+                <tr>
+                    <td>复选框</td>
+                    <td><input type="checkbox" name="2" value="yinyue" id="yinyue1"/>
+                        <!-- 这就是label的锚定方式name可以重复的，但是id是唯一的，所以锚定id-->
+                        <label for="yinyue1">音乐</label></td>
+                    &nbsp;
+                    <td><input type="checkbox" name="2" value="paobu" />跑步</td>
+                </tr>
+                <tr>
+                    <td>照片上传</td>
+                    <td><input type="file" name="mypic" size="20" />
+                        <!-- 这就是label的锚定方式name可以重复的，但是id是唯一的，所以锚定id-->
+                       
+                </tr>
+                
+<tr>
+    <td>自我介绍</td>
+    <td><!---fieldset要框住行的话 就要写在td里面而不是外面-->
+    <fieldset>
+        <legend>请输入</legend>
+
+        <textarea name="love" id="" cols="30" rows="10"></textarea>
+    </fieldset>
+    </td>
+    
+</tr>
+
+
+
+            </table></fieldset>
+        </form>
+          
+    </td>
+</tr>
+</table>
+
+    </body>
+</html>

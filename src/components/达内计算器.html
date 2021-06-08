@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function cal(){//能不用中文就不用，这样编码就不用来回切换，
+//可以减少错误率
+// 如果没有加value ，获取的只是那个文本框元素。。那有什么意义？？能做什么
+// 很多不好的东西 没必要去尝试 小时候不要去女厕所一样。
+var num=document.getElementById("num").value;
+try{var value=eval("("+num+")");
+//如果异常场 try catch的语法
+input.value=value ;// 这是表框唯一的一种特殊的输出数字的语法。其他的都用innerHTML'
+}catch(e){
+    //e 参数也是变量 没有数据类型 所以不用var声明
+    input.value="Error";
+}
+//eval 里面的字符串 加上引号 避免它有时候误以为是两个 避免很多奇怪的问题。
+}
+    </script>
+</head>
+<body>
+    <input type="text" id="num">
+    <input type="button" value="=" onclick="cal()">
+</body>
+</html>

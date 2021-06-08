@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock{
+            border:1px solid burlywood;
+            width: 200px;
+            text-align: center;
+            font-size: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+    <script>/*function chiji(){
+        var n=5;
+// 本来是不用声明下面这个id 但是下面有个条件语句要用到 所以要把他声明成一个变量
+ //其实就是要覆盖条件 就要先定义他
+        var id=setInterval(function()  {console.log(n--)
+            if(!n){
+                clearInterval(id);
+                console.log("帅哥晚上有约吗")
+            }
+        }, 1000);
+    }
+function fs1(){
+   var id= setTimeout(function() {
+       alert("你真帅")
+        
+    }, 3000);
+}*/
+var id;//如果连续点三次开始。则触发三次start 。则有三个id事件。
+function start(){ 
+    //若id非空 则定时器启动过，那么就不要再启动了
+    if(id){
+        return;}//这就是id非空的时候 。就不再执行下去。
+        id= setInterval(() => {//为什么这个东西能声明的。他不是一个条件函数吗
+    var d= new Date();//获取当前客户端的时间
+    var now=d.toLocaleTimeString();//获取本地格式的时间
+    var p=
+    document.getElementById("clock")//获取框。目前获取元素的方式只有这一种！！！
+    
+    p.innerHTML=now;//将时间写入clock。
+    
+}, 1000);
+
+    //定时器已经执行  则取消
+    //如果定时器还未执行，则可以取消
+    
+}
+function stop(){
+    clearInterval(id)// 上面声明这个id 就是这里要用到。。
+    //声明一个东西。一般就是下面有要调用他的地方。
+    // 这个函数如果放在上面start里面就不行。声明id在函数外面
+    id=null;// 按完停止之后。把id清空。不然再点开始因为
+    //id是没有清空。就不会开始了。。所以需要这个闭合。
+}
+    </script>
+</head>
+<body><p>
+    <input type="button" value="开始" onclick="start()">
+    <input type="button" value="停止" onclick="stop()">
+</p>
+<p id="clock">爽点</p>
+
+</body>
+</html>

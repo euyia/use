@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> demo</title>
+        <script>
+        function pf(){//这个按钮和函数的绑定运行方式还是有点陌生。pf（）相当于myFunction()
+            var input=document.getElementById("num");
+var n= input.value;
+var span=
+document.getElementById("result");
+if(isNaN(n)){
+    span.innerHTML="请输入数值";
+
+}else{
+    span.innerHTML=n*n;
+}
+    }    </script>
+    </head>
+    <body>
+        <input type="text"id="num"/><!---这个单标签后面都可以不用/了。。。-->
+   <input type="button" onclick="pf()" value="平方"/><!--这里是onclick 不是id
+
+    
+onclick 是触发事件-->
+   =
+   <span id="result"></span>
+    
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #jj{
+            border: 1px solid gray;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+        .show{
+            display: inline-block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script>
+        n=0;
+        var id;
+        window.onload=function(){lunbo();
+
+        }
+        function lunbo(){
+            id=setInterval(function(){
+                n++;
+                var imgs=document.getElementsByTagName("img");
+                for(var i=0;i<imgs.length;i++){
+                    imgs[i].className="hide"
+                    var index=n%imgs.length;
+                    imgs[index].className="show"
+                }
+
+            },1000)
+        }
+        function stop(){
+            clearInterval(id);
+
+        }
+    </script>
+</head>
+<body>
+    <div id="jj" onmouseout="lunbo()" onmouseover="stop()">
+        <img src="pic/1.PNG" alt="">
+        <img src="./11.23.PNG" alt="" class="hide">
+        <img src="pic/22.1.PNG" alt="" class="hide">
+    </div>
+</body>
+</html>

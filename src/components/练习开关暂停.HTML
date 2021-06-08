@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        #clock{
+            border: 1px ;
+           width: 200px;
+           font-size: 20px;
+           text-align: center;
+           height: 30px;
+
+        }
+        
+    </style><script>var id;
+        function start(){if(id){
+            return;
+        }
+
+        
+id=setInterval(function(){
+    var d= new Date();
+    var l=d.toLocaleTimeString();
+    var p=document.getElementById("clock")
+    p.innerHTML=l;//这个赋值。。只有表格用的是value 其他都用inner
+
+},1000)
+        }
+        function stop(){
+            clearInterval(id);
+            id=null;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="开始" onclick="start()">
+    <input type="button" value="暂停" onclick="stop()">
+    <p id="clock"></p>
+</body>
+</html>

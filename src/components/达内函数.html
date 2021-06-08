@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><script>
+
+/*浏览器加载网页的时候，并没有调用对象，只是创建了对象。只有点击按钮的时候那种触发
+时间的元素的时候才会回头去调用。
+所以js的函数并没有重载，因为就没有类，但是可实现和重载一样的调用方式*/
+function sum(){
+    if(arguments.length>0){
+      var s=0  
+      for(var i=0;i<arguments.length; i++)
+      //为什么这里length后面不用括号？？？
+      {s+=arguments[i];}
+           
+       return s;
+    }
+
+}
+console.log(sum(1,2,3));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

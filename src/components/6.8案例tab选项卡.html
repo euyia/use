@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title><!-- 弄一个new vue的模板
+  秘诀就是要去写。。写起来。写起来。姿势不重要。。重要的是一直写。。就像一只跑。。跑步也是跑跑也是
+  一直输出 最重要
+秘诀中的秘诀。。就是多些经典的。。 -->
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="tab">
+      <ul>
+        <li @click='change(index)' :class='currentIndex==index?"active":""' :key="item.id" v-for='(item,index) in list'>
+          {{item.title}}
+        </li>
+      </ul>
+      <div :class="cuttrenIndex==index?'current':''" :key='item.id' v-for='(item,index) in list'>
+        <img src="item.path" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock{
+            border: 1px solid green;
+            width: 200px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+
+        }
+    </style>
+    <script>var id;
+     function start(){
+        if(id){
+        return;
+    }
+        id=setInterval(function(){
+        var p=new Date();
+        var now=p.toLocaleTimeString(p);
+        var k=document.getElementById("clock")
+        k.innerHTML=now;
+    },1000)
+        
+    }
+    
+function stop(){
+    clearInterval(id);
+    id=null;
+}
+
+
+    </script>
+</head>
+<body>
+    <input type="button"onclick="start()" value="开始" >
+    <input type="button" onclick="stop()" value="暂停">
+    <p id="clock"></p>
+</body>
+</html>

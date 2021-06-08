@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+function pf(){//但是这里为什么要定义input
+    var input=document.getElementById("number");//这里定义的input实际上是获取的那个文本框的名字
+ //上面这一步是获取文本框，下面那步才是获取框内的值
+   var n= input.value;// 取值只要input.value就可以了。但是后面要用。所以要定义var n 。。才能拿出后面用。
+    console.log(n);// 就是填入文本框之后 按平方之后的反应？
+    //判断值是不是数字 
+    //获取span
+    var span=
+    document.getElementById("result");
+ 
+    if(isNaN(n)){//如果返回是true 则不是数字。。虽然别扭
+        //不是数字，给与提示
+        span.innerHTML = "请输入数字";
+
+    }else{span.innerHTML = n*n;
+
+
+    }
+
+}
+        </script>
+    </head>
+    <body>
+        <input type="text" id="number"/>
+        <input type="button" value="平方" onclick="pf()">
+        =<span id="result"></span>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <STYle>
+        #clock{
+                border:solid blue;
+                width: 200px;
+                height: 30px;
+                font-size: 20px;
+                line-height: 30px;
+                text-align:center;
+            }
+        
+    </STYle>
+    <SCript>
+    var id
+    function start(){
+        if(id){// 这是从源头杜绝多个id
+            return;
+        }
+        id= setInterval(function(){
+            var d=new Date();
+            var now= d.toLocaleTimeString();
+            var p=document.getElementById("clock");
+            p.innerHTML=now;
+            // 上面三步就是 前两步取值 第三步取框。然后第四步 把框内写入值。
+        },1000)
+    }
+function stop(){
+    clearInterval(id);
+    id=null  
+    //清空id的值 让他为零 就是上面的if函数就会是false才会执行计时
+     
+
+
+}
+    </SCript>
+</head>
+<body>
+    <input type="button" value="开始" onclick="start()">
+    <input type="button" value="停止" onclick="stop()">
+    <p id="clock"></p>
+</body>
+</html>

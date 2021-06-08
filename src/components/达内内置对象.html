@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var n=3.141592654
+        console.log(n.toFixed(3));
+        //toFixed 是保留几个小数位。 number数据的方法之一。
+        var a= new Array();
+        var a2=[2,3,4,5,"zhangsanlisi",true];
+        console.log(a2[4])// Array可以理解都是对象数组！！
+        a.push("shuai");
+        a.push("wo");
+        a.push(false);
+        console.log(a[2]);
+        var arr1=[12,12,5,36]
+        arr1.reverse();
+        console.log(arr1);
+       /*arr1.sort(function(a,b){
+            return a-b
+        });*/
+      arr1.sort(function(a,b){
+            return b-a
+        });
+       
+        console.log(arr1);
+        //alert(arr1.toString());
+        //上面是数组反向顺序的一个操作。
+        var d1= new Date();
+        var d2=new Date("2016/12/12 12:12:12");
+        console.log(d1.toLocaleDateString());
+        console.log(d2)
+        var y=d1.getFullYear();
+        var m=d1.getMonth();
+        var d=d1.getDate();
+        var today=y+"年"+(m+1)+"月"+d+"日";
+        console.log(today);
+        //RegExp
+        var str= "you can you up, no can no bb.";
+
+var reg=/no/;
+console.log(reg);
+// 5.Math
+
+console.log(Math.PI);
+console.log(Math.round(3.56));
+//6 Date
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

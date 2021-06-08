@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>var cities;//下面另外函数也要调用 所以要全局声明
+        window.onload=function(){
+            cities=[
+                ["福州","漳州","厦门"],
+                ["广州","东莞","佛山"],
+                ["石家庄","保定","廊坊"],
+            ]
+        }
+        function cha(){
+           // alert(1);  选择点击之后才会触发。
+           // 获取省份
+           var sell=
+           document.getElementById("province");
+           //alert(sell.value)// 如果value没有赋值 则会显示那些省份
+           //获取选中的省份的序号。
+           var n= sell.value
+           // 获取该省份对应的城市
+           var pc=cities[n];
+           //删除旧城市
+           var sel2
+           =document.getElementById("city");
+           var options=sel2.getElementsByTagName("option");//这里开头不是document 这个相当于那时候img那个
+           //要倒着删除 就倒着循环
+           for(var i=options.length-1;i>0;i--){
+               sel2.removeChild(options[i]);
+
+           }//然后追加新城市
+           if(pc){
+               for(var i=0;i<pc.length;i++){
+                   var option=document.createElement("option")
+                   option.innerHTML=pc[i]
+                   sel2.appendChild(option);
+               }
+           }
+
+        }
+    </script>
+</head>
+<body>
+    省：
+    <select onchange="cha()" id="province">
+        <option value="-1">请选择</option>
+        <option value="0">福建省</option>
+        <option value="1">广东省</option>
+        <option value="2">河北省</option>
+    </select>
+    市：<select id="city">
+        <option >请选择</option>
+
+
+    </select>
+</body>
+</html>

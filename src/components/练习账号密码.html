@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+         .ok{color: chartreuse;}
+         .error{color: crimson;}
+    </style>
+    <script>function checkCode(){
+        var code=document.getElementById("code").value;
+        var span=document.getElementById("code_msg");
+        var reg=/^\w{5,10}$/;
+        if(reg.test(code)){
+            span.className="ok";
+            return true;
+
+        }else{
+            span.className="error";
+            return false;
+        }
+    }
+    function checkPwd(){
+        var pwd=document.getElementById("pwd").value;
+        var span=document.getElementById("pwd_msg");
+        var reg=/^\w{5,10}$/;
+        if(reg.test(pwd)){
+            span.className="ok";// 则span元素的这个类别的属性为ok 为什么不能用class
+            return true;
+
+        }else{
+            span.className="error";
+            return false;
+        }
+    }
+    </script>
+</head>
+<body><!--这个onsubmit 里面的东西很 条件布尔值true就是1 只有都是对的1+1才等于2-->
+    <form action="http:\\www.google.cn" onsubmit="return
+     checkCode()+checkPwd()==2">
+     <!-- 这另一种写法<form action="http:\\www.google.cn" onsubmit="return
+     checkCode()&&checkPwd()">   这是常规写法-->
+        <p>
+            账号：<input type="text" id="code" onblur="checkCode();">
+            <span id="code_msg" > 5-20 字母，数字，下划线</span>
+        </p>
+
+        <p>
+            密码：<input type="password" id="pwd" onblur="checkPwd();">
+            <span  id="pwd_msg">5-20字母 ，下划线 ，数字</span>
+        </p>
+
+ <input type="submit"  value="登录">
+
+    </form>
+    
+</body>
+</html>

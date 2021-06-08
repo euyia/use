@@ -1,0 +1,46 @@
+<html>
+    <head>   
+       <script>//网页加载时候优先生成随机数。在body加载前就有了。这就是直接写进js，而不是封装掉用的一个好处
+// parse 是解析 paresInt 就是解析一个数 返回整数 舍去小数
+// Math 要大写。。
+           var ran=parseInt(Math.random()*100);//他因为会直接舍去小数点 所以生成的是0-99的整数
+           //无论此函数写在这 还是上面那行早，函数都比随机数生成执行的晚
+           function guess(){//获取文本框的值
+               var n=
+               document.getElementById("num").value;
+               var span=document.getElementById("result");
+               //判断该值是否为数字 外企就不会加班。外企水平要过硬。还要会英语。。
+               if(isNaN(n)){
+                   span.innerHTML="请输入数字";
+
+               }else{
+                   //是数字和随机数比较
+                   if(n<ran){
+                    span.innerHTML="小了";
+                   }else if(n>ran){
+                    span.innerHTML="大了";
+                   }
+                   else{
+                    span.innerHTML="对了";
+                   }
+
+               }
+               
+           }
+
+
+    </script>
+    </head>
+    
+    <body>
+        <input type="text" id="num">
+        <input type="button"
+         onclick="guess()" value="猜">
+        <span id="result"></span>
+
+    </body>
+   <script>
+       /*resultresutlresultsresultresultparsepparseparseparseparseparseparseparseparseparsepra
+       parseparseparseparseparsrparseparseprasparseparseparseparse
+   </script>
+</html>

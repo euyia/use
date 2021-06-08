@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{
+            border: 1px solid;
+            height: 30px;
+            width: 200px;
+            font-size: 20px;
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        var p
+        function send() {if(p){
+            return;
+        } var id=document.getElementById("msg");
+            id.innerHTML="正在发送";
+            
+           p= setTimeout(() => {id.innerHTML="已发送";
+           p=null;// 这个写在3000）外面就不行？？
+                
+            }, 3000);
+           
+        }
+        function cancel() {if(p){//这里是非空为真的时候执行 非空说明已经发送了。。不能撤销
+           var id=document.getElementById("msg");
+            id.innerHTML="已撤销"
+            clearTimeout(p);
+            p=null;
+        } 
+           
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="发送" onclick="send()">
+    <input type="button" value="撤销" onclick="cancel()">
+    <p id="msg"></p>
+</body>
+</html>

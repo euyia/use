@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{border: 1px;
+        width: 200px;
+            margin: auto;
+        }
+    
+        .show{
+            display: inline-block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script>
+    //hide 和show 用class来定义。而不是用style内联 
+    n=0;
+    var id;
+
+        window.onload=function(){
+            lunbo();
+            
+        }
+        function lunbo(){
+            id=setInterval(function(){
+                n++;
+                //n++不是递增合集吗？？？不是i=I+1d 的意思
+                //这获取到的是一个数组。图片序列
+                var imgs=document.getElementsByTagName("img");
+                for(var i=0;i<imgs.length;i++){
+                    imgs[i].className="hide";
+                    //每张图片都隐藏 就是挨个改。都改成hide。。
+                    // 用这种方式来改变全部。。有点意思
+                    //for循环语句 要补课下。。
+                    //这句话要怎么理解。为什么不直接全部覆盖就好了。写这么麻烦
+                    var index=n%imgs.length;
+                    imgs[index].className="show";
+                }
+
+            },1000)
+        }
+        function stop(){
+            clearInterval(id);
+        }
+    </script>
+</head>
+<body><div onmouseover="stop();" onmouseout="lunbo();">
+    <img src="pic/1.PNG" alt=""> 
+    <img src="pic/2.png" alt="" class="hide"> 
+    <img src="pic/3.PNG" alt="" class="hide"></div>
+</body>
+</html>

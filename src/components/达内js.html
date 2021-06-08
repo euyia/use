@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script>
+            /*1将js封装成函数，点击某些按钮时调用
+            2不封装成函数 网页加载的时候直接就调用了
+            该js执行时机甚至币body还早
+            可以放在控制台看。调试的时候
+            为了调试方便。。可以用控制台。
+              console.log(x) 括号里面的 就是你想要体现在控制台的
+              js变量没类型 都是用var 但是数据有类型 值是有类型的
+              数据类型。除了特殊类型 其他都是对象。。js都是对象可以这么说
+              外部对象 结构比较复杂 调用比较麻烦
+              。js学习主要就是对象。重点又是外部对象。。！！
+              变量之间可以直接相加 类型会转换
+            */
+            ///alert(1);
+            var s= 'hi';
+            var n= 3.14;
+            var b= true;
+            console.log(s=n)
+            console.log(s+b)
+            console.log(n+b)
+            var x ;
+            console.log(x);
+            x=3;
+            console.log(x);
+            //强制转换
+            console.log(s.toString()+1)
+            console.log(parseInt(n))// 这是取整数
+            //console.log(s.typeof()) 不是这样写
+            console.log(typeof(n))
+            // 因为js里面变量赋值的时候他本身是没有数据类型限制的 所以
+            //有时候要用typeof 来查询他的数据类型
+            //NaN = not a number parseInt 取整的时候如果是字符串就显示NaN
+            console.log(isNaN(s)) //就是专程数字是不是NaN 是就是true
+            // 有点别扭 就是你是错的的时候才是true。。
+            //编程先要有逻辑。。然后在去找语法。。。学编程 就是
+            
+
+
+        </script>
+    </head>
+    <body><p>没有故事的解锁</p>
+
+        
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f2(){
+            var v= confirm("你好帅")
+            // 相比alert 多了一个取消选项 prompt 这个多一个输入框 
+        }
+        function f3(){
+            var n=5;
+            //启动定时器，定时器本身就是循环
+           var id= setInterval(function() {//setinerval方法是（函数，秒数)
+                console.log(n--);// 如果没有下面的if语句，这个就相当于setinterval的执行对象，控制台也可以是。
+                if(!n){// 这个！n 是很巧妙的。可以学。
+                    clearInterval(id);//这个是停止计时
+                    console.log("boooooooooooom")
+                }
+            },1000)
+            //如果这下面写其他函数。会优先执行
+            //因为这个线程是和上面并列的 上面的线程执行完要1000毫秒。
+console.log("boom")
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="f2()" value="按钮">
+    <input type="button" onclick="f3()" value="周期性定时器">
+</body>
+</html>

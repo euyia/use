@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock{
+            border: 1px solid red;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            font-size: 20px;
+
+        }
+    </style>
+    <script>var id;
+        function start(){
+            if(id){
+                return;
+            }
+          id=  setInterval(function(){// 这个id声明是给下面stop用的
+                var d= new Date();
+                var now=d.toLocaleTimeString();
+                var p = document.getElementById("clock");
+                p.innerHTML=now;
+
+            },1000)
+        }
+        function stop(){
+            clearInterval(id);
+            id="";// 这个只要写一个特殊的空值能判断成false就行了
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="开始" onclick="start()">
+    <input type="button" value="暂停" onclick="stop()">
+    <p id="clock"></p>
+</body>
+</html>

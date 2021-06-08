@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock{
+            border: 1px solid gray;
+            width: 160px;
+            height: 30px;
+            text-align: center;
+            font-size: 20px;
+            
+        }
+    </style>
+    <script>
+  var id;//stop既然读的是funcion里面的id 为什么要这里要全局声明？？
+        function start(){if(id){
+            return;
+        }//就这里 var id=id=setInterval(function(){。。这里声明下面stop就取不到？
+               id=setInterval(function(){
+                  var d= new Date();
+                  var now =d.toLocaleTimeString();
+                  var l=document.getElementById("clock");
+                  l.innerHTML=now;
+
+              },1000)
+        }
+        function stop(){
+            clearInterval(id);
+             id=null;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="开始" onclick="start()">
+    <input type="button" value="暂停" onclick="stop()">
+    <p id="clock"></p>
+</body>
+</html>

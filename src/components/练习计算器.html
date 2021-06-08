@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>function cal(){
+        var input=document.getElementById("num");
+        var num=input.value;
+        // 为什么简写成一行就不行。。。醉了。
+        try{
+            var value=eval("("+num+")"); 
+            input.value=value;
+        }catch{
+           input.value="error"
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="num">
+    <input type="button" value="=" onclick="cal()">
+</body>
+</html>
